@@ -3,7 +3,8 @@ require './Modele/modele.php';
 
 function listerBillets()
 {
-    $billets = getBillets();
+    $bdd=Modele::getBdd();
+    $billets = $bdd-> getBillets();
     $lienBillet = "index.php?action=afficherBillet&id=";
     // Affichage
     require 'vue/listeBillets.php';
@@ -11,8 +12,9 @@ function listerBillets()
    
  function afficherBillets($id)
 {
-    $billet = getBillet($id);
-    $commentaires = getCommentaires($id);
+    $bdd=Modele::getBdd();
+    $billet = $bdd->getBillet($id);
+    //$commentaires = $bdd-> getCommentaires($id);
     require 'vue/detailsBillet.php';
  }
  
@@ -20,3 +22,4 @@ function afficherErreur($msgErreur)
 {
     require 'vue/erreur.php';
 }
+
