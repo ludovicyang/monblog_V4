@@ -1,4 +1,5 @@
 <?php
+//Commentaire bidon 
 require './Controleur/actions.php';
 
 try {
